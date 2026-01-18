@@ -21,8 +21,9 @@ def get_db():
 def get_internos(db: Session = Depends(get_db)):
     """Obtener todos los internos"""
     internos = db.query(models.Interno).all()
-    return internos
+    return db.query(models.Interno).all()
 
+    
 
 @router.get("/{interno_id}", response_model=schemas.InternoResponse)
 def get_interno(interno_id: str, db: Session = Depends(get_db)):
