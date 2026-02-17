@@ -7,7 +7,7 @@ import schemas
 
 
 router = APIRouter(prefix="/geografia", tags=["geografia"])
-
+ 
 
 def get_db():
     db = SessionLocal()
