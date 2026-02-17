@@ -28,7 +28,7 @@ class GeografiaBase(BaseModel):
 
 class GeografiaResponse(GeografiaBase):
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class InternoBase(BaseModel):
@@ -102,4 +102,16 @@ class InternoUpdate(BaseModel):
 
 class InternoResponse(InternoBase):
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+
+# Schemas de autenticación
+class LoginRequest(BaseModel):
+    nombres: str
+    clave: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+    user: dict

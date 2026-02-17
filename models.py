@@ -64,3 +64,11 @@ class Interno(Base):
     identificacion = Column(String(45))
     tratamientoDatos = Column(Integer)
     idGeografia = Column(Integer)
+
+
+class Usuario(Base):
+    __tablename__ = "usuarios"
+    
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    nombres = Column(String(255), nullable=False)
+    clave = Column(String(255), nullable=False)  # En producción, usar hash de contraseña

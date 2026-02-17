@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import models
 from routers.internos import router as internos_router
 from routers.geografia import router as geografia_router
+from routers.auth import router as auth_router
 from database import engine
 
 # Crear tablas
@@ -24,6 +25,7 @@ app.add_middleware(
 )
 
 # Incluir routers UNA SOLA VEZ
+app.include_router(auth_router)
 app.include_router(internos_router)
 app.include_router(geografia_router)
 
